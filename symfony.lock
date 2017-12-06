@@ -172,5 +172,89 @@
     },
     "symfony/orm-pack": {
         "version": "v1.0.4"
+    },
+    "symfony/translation": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "124be9a2b7cc035fd8c56f4fd2e19c907c1f3fb8"
+        }
+    },
+    "symfony/validator": {
+        "version": "v4.0.1"
+    },
+    "twig/twig": {
+        "version": "v2.4.4"
+    },
+    "symfony/twig-bridge": {
+        "version": "v4.0.1"
+    },
+    "symfony/twig-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "f75ac166398e107796ca94cc57fa1edaa06ec47f"
+        }
+    },
+    "symfony/inflector": {
+        "version": "v4.0.1"
+    },
+    "symfony/property-access": {
+        "version": "v4.0.1"
+    },
+    "symfony/security": {
+        "version": "v4.0.1"
+    },
+    "symfony/security-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "85834af1496735f28d831489d12ab1921a875e0d"
+        }
+    },
+    "symfony/expression-language": {
+        "version": "v4.0.1"
+    },
+    "symfony/asset": {
+        "version": "v4.0.1"
+    },
+    "webmozart/assert": {
+        "version": "1.2.0"
+    },
+    "phpdocumentor/reflection-common": {
+        "version": "1.0.1"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "0.4.0"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "4.2.0"
+    },
+    "willdurand/negotiation": {
+        "version": "v2.3.1"
+    },
+    "symfony/serializer": {
+        "version": "v4.0.1"
+    },
+    "symfony/property-info": {
+        "version": "v4.0.1"
+    },
+    "api-platform/core": {
+        "version": "2.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.1",
+            "ref": "b50f8aa321cc40c380dda7605aa5cef66f476802"
+        }
+    },
+    "api-platform/api-pack": {
+        "version": "v1.0.1"
     }
 }
