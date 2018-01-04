@@ -74,7 +74,7 @@ class User implements UserInterface, EquatableInterface
      */
     private $password;
 
-    private $salt = 'p@nd@tr!p';
+    private $salt;
 
     private $roles = ['ROLE_USER'];
 
@@ -173,7 +173,7 @@ class User implements UserInterface, EquatableInterface
         return $this->roles;
     }
 
-    public function getSalt(): string
+    public function getSalt(): ?string
     {
         return $this->salt;
     }
