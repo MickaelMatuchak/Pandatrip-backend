@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -135,7 +136,7 @@ class Visit
         $this->name = $name;
     }
 
-    public function getThemes() : array
+    public function getThemes() : Collection
     {
         return $this->themes;
     }
@@ -145,7 +146,7 @@ class Visit
         $this->themes = $themes;
     }
 
-    public function getImages() : array
+    public function getImages() : Collection
     {
         return $this->images;
     }
@@ -155,7 +156,7 @@ class Visit
         $this->images = $images;
     }
 
-    public function getReviews() : array
+    public function getReviews() : Collection
     {
         return $this->reviews;
     }
