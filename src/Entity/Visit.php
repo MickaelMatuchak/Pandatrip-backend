@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -87,19 +88,18 @@ class Visit
     private $city;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
      * @Assert\NotBlank
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      */
     private $description;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @Assert\NotBlank
      */
     private $note;
@@ -108,7 +108,7 @@ class Visit
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
      */
-    private $nbNotes;
+    private $nbNotes = 0;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -135,7 +135,7 @@ class Visit
         $this->name = $name;
     }
 
-    public function getThemes() : array
+    public function getThemes(): Collection
     {
         return $this->themes;
     }
@@ -145,7 +145,7 @@ class Visit
         $this->themes = $themes;
     }
 
-    public function getImages() : array
+    public function getImages(): Collection
     {
         return $this->images;
     }
@@ -155,7 +155,7 @@ class Visit
         $this->images = $images;
     }
 
-    public function getReviews() : array
+    public function getReviews(): Collection
     {
         return $this->reviews;
     }
