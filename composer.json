@@ -38,6 +38,9 @@
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
+            "mkdir -p var/jwt",
+            "openssl genrsa -out var/jwt/private.pem -aes256 -passout pass:%JWT_PASSPHRASE% 4096",
+            "openssl rsa -pubout -in var/jwt/private.pem -passin pass:%JWT_PASSPHRASE% -out var/jwt/public.pem",
             "@auto-scripts"
         ],
         "post-update-cmd": [
