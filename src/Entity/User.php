@@ -13,12 +13,11 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity()
  * @ORM\Table(name="user")
  * @UniqueEntity("username")
- * @UniqueEntity("email")
+ * @UniqueEntity("mail")
  * @ApiResource()
  */
 class User implements UserInterface, EquatableInterface
 {
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
