@@ -135,7 +135,7 @@ class Visit
         $this->name = $name;
     }
 
-    public function getThemes(): Collection
+    public function getThemes() : Collection
     {
         return $this->themes;
     }
@@ -155,7 +155,7 @@ class Visit
         $this->images = $images;
     }
 
-    public function getReviews(): Collection
+    public function getReviews() : Collection
     {
         return $this->reviews;
     }
