@@ -19,7 +19,7 @@ class Theme
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -28,6 +28,12 @@ class Theme
      * @Assert\NotBlank
      */
     private $name;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Image")
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     */
+    private $image;
 
     /**
      * @ORM\ManyToMany(targetEntity="Visit", mappedBy="themes")
@@ -52,6 +58,16 @@ class Theme
     public function setName($name) : void
     {
         $this->name = $name;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): void
+    {
+        $this->image = $image;
     }
 
     public function getVisits() : ?Collection
