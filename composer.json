@@ -45,7 +45,8 @@
         ],
         "post-install-cmd": [
             "@jwt_certificat",
-            "@auto-scripts"
+            "@auto-scripts",
+            "php bin/console cache:warmup --env=prod --no-debug"
         ],
         "post-update-cmd": [
             "@auto-scripts"

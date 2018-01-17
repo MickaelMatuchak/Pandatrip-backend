@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -25,12 +26,14 @@ class Image
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups("theme")
      */
     private $url;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull
+     * @Groups("theme")
      */
     private $description;
 

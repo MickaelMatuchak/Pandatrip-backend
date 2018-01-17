@@ -3,16 +3,20 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="theme")
  * @UniqueEntity("name")
- * @ApiResource()
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"theme"}}
+ * })
  */
 class Theme
 {
@@ -32,6 +36,7 @@ class Theme
     /**
      * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     * @Groups("theme")
      */
     private $image;
 
