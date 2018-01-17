@@ -30,6 +30,7 @@ class Theme
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank
+     * @Groups("theme")
      */
     private $name;
 
