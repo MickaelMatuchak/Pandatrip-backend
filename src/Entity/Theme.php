@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
@@ -15,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="theme")
  * @UniqueEntity("name")
  * @ApiResource(attributes={
- *     "normalization_context"={"groups"={"theme"}}
+ *     "normalization_context"={"groups"={"theme"}},
  * })
  */
 class Theme
@@ -43,6 +42,7 @@ class Theme
 
     /**
      * @ORM\ManyToMany(targetEntity="Visit", mappedBy="themes")
+     * @Groups("theme")
      */
     private $visits;
 

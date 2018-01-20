@@ -5,13 +5,15 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="visit")
- * @ApiResource()
- */
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"visit"}}
+ * }) */
 class Visit
 {
     /**
@@ -24,6 +26,8 @@ class Visit
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $name;
 
@@ -36,82 +40,108 @@ class Visit
     /**
      * @ORM\ManyToMany(targetEntity="Image")
      * @ORM\JoinTable(name="visits_images",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      joinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
      *      )
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $images;
 
     /**
      * @ORM\ManyToMany(targetEntity="Review")
      * @ORM\JoinTable(name="visits_reviews",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      joinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="review_id", referencedColumnName="id", unique=true)}
      *      )
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $reviews;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $latitude;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $longitude;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $region;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $note;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $nbNotes = 0;
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Groups("visit")
+     * @Groups("theme")
      */
     private $site;
 

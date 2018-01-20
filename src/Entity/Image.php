@@ -27,6 +27,7 @@ class Image
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
      * @Groups("theme")
+     * @Groups("visit")
      */
     private $url;
 
@@ -34,6 +35,7 @@ class Image
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull
      * @Groups("theme")
+     * @Groups("visit")
      */
     private $description;
 
