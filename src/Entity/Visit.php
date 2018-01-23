@@ -20,14 +20,14 @@ class Visit
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"theme", "visit"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $name;
 
@@ -43,8 +43,7 @@ class Visit
      *      joinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
      *      )
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $images;
 
@@ -54,94 +53,82 @@ class Visit
      *      joinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="review_id", referencedColumnName="id", unique=true)}
      *      )
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $reviews;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $latitude;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $longitude;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $region;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $note;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $nbNotes = 0;
 
     /**
      * @ORM\Column(type="string", nullable=true)
-     * @Groups("visit")
-     * @Groups("theme")
+     * @Groups({"theme", "visit"})
      */
     private $site;
 
