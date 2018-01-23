@@ -15,21 +15,22 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "normalization_context"={"groups"={"visit"}},
  *     "filters"={"visit.search_filter"},
  *     "pagination_client_items_per_page"=true
- * }) */
+ * })
+ */
 class Visit
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $name;
 
@@ -45,7 +46,7 @@ class Visit
      *      joinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
      *      )
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $images;
 
@@ -55,82 +56,82 @@ class Visit
      *      joinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="review_id", referencedColumnName="id", unique=true)}
      *      )
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $reviews;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $latitude;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $longitude;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $region;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $note;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $nbNotes = 0;
 
     /**
      * @ORM\Column(type="string", nullable=true)
-     * @Groups({"theme", "visit"})
+     * @Groups({"visit"})
      */
     private $site;
 
