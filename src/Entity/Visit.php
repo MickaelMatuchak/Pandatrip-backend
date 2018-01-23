@@ -13,7 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="visit")
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"visit"}},
- *     "filters"={"visit.search_filter"}
+ *     "filters"={"visit.search_filter"},
+ *     "pagination_client_items_per_page"=true
  * }) */
 class Visit
 {
