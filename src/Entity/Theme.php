@@ -25,27 +25,27 @@ class Theme
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups("theme")
+     * @Groups({"theme"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank
-     * @Groups("theme")
+     * @Groups({"theme"})
      */
     private $name;
 
     /**
      * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
-     * @Groups("theme")
+     * @Groups({"theme"})
      */
     private $image;
 
     /**
      * @ORM\ManyToMany(targetEntity="Visit", mappedBy="themes")
-     * @Groups("theme")
+     * @Groups({"theme"})
      */
     private $visits;
 

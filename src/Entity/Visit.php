@@ -23,14 +23,14 @@ class Visit
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visit"})
+     * @Groups({"visit", "theme"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit"})
+     * @Groups({"visit", "theme"})
      */
     private $name;
 
@@ -46,7 +46,7 @@ class Visit
      *      joinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
      *      )
-     * @Groups({"visit"})
+     * @Groups({"visit", "theme"})
      */
     private $images;
 
