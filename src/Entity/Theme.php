@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity("name")
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"theme"}},
+ *     "filters"={"theme.search_filter"}
  * })
  */
 class Theme

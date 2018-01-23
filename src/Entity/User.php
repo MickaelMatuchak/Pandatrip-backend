@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="user")
  * @UniqueEntity("username")
  * @UniqueEntity("mail")
- * @ApiResource()
+ * @ApiResource(attributes={"filters"={"user.search_filter"}})
  */
 class User implements UserInterface, EquatableInterface
 {

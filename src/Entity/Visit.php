@@ -12,7 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="visit")
  * @ApiResource(attributes={
- *     "normalization_context"={"groups"={"visit"}}
+ *     "normalization_context"={"groups"={"visit"}},
+ *     "filters"={"visit.search_filter"}
  * }) */
 class Visit
 {
