@@ -34,6 +34,13 @@ class Review
      * @Assert\NotBlank
      * @Groups({"visit"})
      */
+    private $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Groups({"visit"})
+     */
     private $text;
 
     /**
@@ -68,6 +75,16 @@ class Review
     public function setNote($note) : void
     {
         $this->note = $note;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function setTitle($title): void
+    {
+        $this->title = $title;
     }
 
     public function getText() : string
