@@ -23,14 +23,14 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"review"})
+     * @Groups({"visit"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"review"})
+     * @Groups({"visit"})
      */
     private $username;
 
@@ -38,7 +38,7 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
-     * @Groups({"review"})
+     * @Groups({"visit"})
      */
     private $sexe;
 
