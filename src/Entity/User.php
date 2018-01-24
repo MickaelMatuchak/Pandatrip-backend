@@ -75,7 +75,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
-     * @Groups({"review"})
+     * @Groups({"user"})
      */
     private $image;
 
