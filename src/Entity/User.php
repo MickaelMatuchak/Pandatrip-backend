@@ -37,6 +37,14 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Assert\Choice(choices = {"male", "female"})
+     * @Groups({"review"})
+     */
+    private $sexe;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
      */
     private $firstName;
 
@@ -99,6 +107,16 @@ class User implements UserInterface, EquatableInterface
     public function setUsername($username): void
     {
         $this->username = $username;
+    }
+
+    public function getSexe(): string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe($sexe): void
+    {
+        $this->sexe = $sexe;
     }
 
     public function getPassword(): string
