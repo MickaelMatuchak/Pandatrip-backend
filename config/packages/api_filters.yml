@@ -14,3 +14,8 @@ services:
         parent:  'api_platform.doctrine.orm.search_filter'
         arguments: [ { name: 'exact' } ]
         tags: [ 'api_platform.filter' ]
+
+    visit.range_filter:
+        parent: 'api_platform.doctrine.orm.range_filter'
+        arguments: [ { postalCode: ~ } ]
+        tags:  [ 'api_platform.filter' ]
