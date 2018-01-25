@@ -136,32 +136,38 @@ class Visit
      */
     private $site;
 
-    public function getId() : int
+    /**
+     * @ORM\OneToMany(targetEntity="VisitGuide", mappedBy="visit")
+     * @Groups({"visit"})
+     */
+    private $listGuides;
+
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId($id) : void
+    public function setId($id): void
     {
         $this->id = $id;
     }
 
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name) : void
+    public function setName($name): void
     {
         $this->name = $name;
     }
 
-    public function getThemes() : Collection
+    public function getThemes(): Collection
     {
         return $this->themes;
     }
 
-    public function setThemes($themes) : void
+    public function setThemes($themes): void
     {
         $this->themes = $themes;
     }
@@ -171,128 +177,138 @@ class Visit
         return $this->images;
     }
 
-    public function setImages($images) : void
+    public function setImages($images): void
     {
         $this->images = $images;
     }
 
-    public function getReviews() : Collection
+    public function getReviews(): Collection
     {
         return $this->reviews;
     }
 
-    public function setReviews($reviews) : void
+    public function setReviews($reviews): void
     {
         $this->reviews = $reviews;
     }
 
-    public function getLatitude() : float
+    public function getLatitude(): float
     {
         return $this->latitude;
     }
 
-    public function setLatitude($latitude) : void
+    public function setLatitude($latitude): void
     {
         $this->latitude = $latitude;
     }
 
-    public function getLongitude() : float
+    public function getLongitude(): float
     {
         return $this->longitude;
     }
 
-    public function setLongitude($longitude) : void
+    public function setLongitude($longitude): void
     {
         $this->longitude = $longitude;
     }
 
-    public function getAddress() : string
+    public function getAddress(): string
     {
         return $this->address;
     }
 
-    public function setAddress($address) : void
+    public function setAddress($address): void
     {
         $this->address = $address;
     }
 
-    public function getCountry() : string
+    public function getCountry(): string
     {
         return $this->country;
     }
 
-    public function setCountry($country) : void
+    public function setCountry($country): void
     {
         $this->country = $country;
     }
 
-    public function getRegion() : string
+    public function getRegion(): string
     {
         return $this->region;
     }
 
-    public function setRegion($region) : void
+    public function setRegion($region): void
     {
         $this->region = $region;
     }
 
-    public function getCity() : string
+    public function getCity(): string
     {
         return $this->city;
     }
 
-    public function setCity($city) : void
+    public function setCity($city): void
     {
         $this->city = $city;
     }
 
-    public function getPostalCode() : int
+    public function getPostalCode(): int
     {
         return $this->postalCode;
     }
 
-    public function setPostalCode($postalCode) : void
+    public function setPostalCode($postalCode): void
     {
         $this->postalCode = $postalCode;
     }
 
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    public function setDescription($description) : void
+    public function setDescription($description): void
     {
         $this->description = $description;
     }
 
-    public function getNote() : int
+    public function getNote(): int
     {
         return $this->note;
     }
 
-    public function setNote($note) : void
+    public function setNote($note): void
     {
         $this->note = $note;
     }
 
-    public function getNbNotes() : int
+    public function getNbNotes(): int
     {
         return $this->nbNotes;
     }
 
-    public function setNbNotes($nbNotes) : void
+    public function setNbNotes($nbNotes): void
     {
         $this->nbNotes = $nbNotes;
     }
 
-    public function getSite() : string
+    public function getSite(): string
     {
         return $this->site;
     }
 
-    public function setSite($site) : void
+    public function setSite($site): void
     {
         $this->site = $site;
+    }
+
+    public function getListGuides(): Collection
+    {
+        return $this->listGuides;
+    }
+
+    public function setListGuides($listGuides): void
+    {
+        $this->listGuides = $listGuides;
     }
 }

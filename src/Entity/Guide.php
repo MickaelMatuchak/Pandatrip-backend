@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -38,35 +40,77 @@ class Guide
     /**
      * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @Assert\NotBlank
      */
     private $user;
 
-    public function getId() : int
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     */
+    private $address;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     */
+    private $country;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     */
+    private $region;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
+     * @Assert\NotBlank
+     */
+    private $postalCode;
+
+    /**
+     * @ORM\Column(type="integer", columnDefinition="INT(10) UNSIGNED ZEROFILL")
+     * @Assert\NotBlank
+     */
+    private $phoneNumber;
+
+    /**
+     * @ORM\OneToMany(targetEntity="VisitGuide", mappedBy="guide")
+     */
+    private $listVisits;
+
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId($id) : void
+    public function setId($id): void
     {
         $this->id = $id;
     }
 
-    public function getBillfold() : float
+    public function getBillfold(): float
     {
         return $this->billfold;
     }
 
-    public function setBillfold($billfold) : void
+    public function setBillfold($billfold): void
     {
         $this->billfold = $billfold;
     }
 
-    public function getReviews() : array
+    public function getReviews(): Collection
     {
         return $this->reviews;
     }
 
-    public function setReviews($reviews) : void
+    public function setReviews($reviews): void
     {
         $this->reviews = $reviews;
     }
@@ -76,8 +120,78 @@ class Guide
         return $this->user;
     }
 
-    public function setUser($user) : void
+    public function setUser($user): void
     {
         $this->user = $user;
+    }
+
+    public function getAddress(): string
+    {
+        return $this->address;
+    }
+
+    public function setAddress($address): void
+    {
+        $this->address = $address;
+    }
+
+    public function getCountry(): string
+    {
+        return $this->country;
+    }
+
+    public function setCountry($country): void
+    {
+        $this->country = $country;
+    }
+
+    public function getRegion(): string
+    {
+        return $this->region;
+    }
+
+    public function setRegion($region): void
+    {
+        $this->region = $region;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    public function setCity($city): void
+    {
+        $this->city = $city;
+    }
+
+    public function getPostalCode(): int
+    {
+        return $this->postalCode;
+    }
+
+    public function setPostalCode($postalCode): void
+    {
+        $this->postalCode = $postalCode;
+    }
+
+    public function getPhoneNumber(): int
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber($phoneNumber): void
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+    public function getListVisits(): Collection
+    {
+        return $this->listVisits;
+    }
+
+    public function setListVisits($listVisits): void
+    {
+        $this->listVisits = $listVisits;
     }
 }

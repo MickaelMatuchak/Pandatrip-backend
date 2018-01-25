@@ -43,16 +43,16 @@
         },
         {
             "name": "api-platform/core",
-            "version": "v2.1.4",
+            "version": "v2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/core.git",
-                "reference": "aa3ff0e9e68f31df4ea42154e2cce63b9df99b47"
+                "reference": "6578d7326e592d900297cd78441cf442b19f27a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/core/zipball/aa3ff0e9e68f31df4ea42154e2cce63b9df99b47",
-                "reference": "aa3ff0e9e68f31df4ea42154e2cce63b9df99b47",
+                "url": "https://api.github.com/repos/api-platform/core/zipball/6578d7326e592d900297cd78441cf442b19f27a6",
+                "reference": "6578d7326e592d900297cd78441cf442b19f27a6",
                 "shasum": ""
             },
             "require": {
@@ -82,7 +82,7 @@
                 "doctrine/orm": "^2.5.2",
                 "friendsofsymfony/user-bundle": "^2.0",
                 "guzzlehttp/guzzle": "^6.0",
-                "nelmio/api-doc-bundle": "^2.11.2",
+                "nelmio/api-doc-bundle": "^2.13.3",
                 "php-mock/php-mock-phpunit": "^2.0",
                 "phpdocumentor/reflection-docblock": "^3.0 || ^4.0",
                 "phpdocumentor/type-resolver": "^0.2.1 || ^0.3 || 0.4",
@@ -94,7 +94,7 @@
                 "symfony/config": "^3.3 || ^4.0",
                 "symfony/console": "^3.3 || ^4.0",
                 "symfony/debug": "^2.8 || ^3.0 || ^4.0",
-                "symfony/dependency-injection": "^3.3@dev || ^4.0@dev",
+                "symfony/dependency-injection": "^3.3 || ^4.0",
                 "symfony/doctrine-bridge": "^2.8.12 || ^3.0 || ^4.0",
                 "symfony/event-dispatcher": "^3.3 || ^4.0",
                 "symfony/expression-language": "^2.8 || ^3.0 || ^4.0",
@@ -153,7 +153,7 @@
                 "rest",
                 "swagger"
             ],
-            "time": "2017-11-28T09:45:30+00:00"
+            "time": "2018-01-23T18:55:19+00:00"
         },
         {
             "name": "doctrine/annotations",
