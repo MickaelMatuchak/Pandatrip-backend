@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SecurityController extends Controller
 {
     /**
-     * @Route("/login_check", name="login_check")
+     * @Route("/api/login_check", name="login_check")
      */
     public function loginCheck(Request $request)
     {
