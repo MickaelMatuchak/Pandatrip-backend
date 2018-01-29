@@ -51,9 +51,8 @@ class Review
     private $date;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * @Groups({"visit"})
      */
     private $user;
 

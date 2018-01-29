@@ -75,7 +75,7 @@ class Guide
     private $postalCode;
 
     /**
-     * @ORM\Column(type="integer", columnDefinition="INT(10) UNSIGNED ZEROFILL")
+     * @ORM\Column(type="string")
      * @Assert\NotBlank
      */
     private $phoneNumber;
@@ -175,7 +175,7 @@ class Guide
         $this->postalCode = $postalCode;
     }
 
-    public function getPhoneNumber(): int
+    public function getPhoneNumber(): string
     {
         return $this->phoneNumber;
     }
@@ -185,7 +185,7 @@ class Guide
         $this->phoneNumber = $phoneNumber;
     }
 
-    public function getListVisits(): Collection
+    public function getListVisits(): ?Collection
     {
         return $this->listVisits;
     }

@@ -302,7 +302,7 @@ class Visit
         $this->site = $site;
     }
 
-    public function getListGuides(): Collection
+    public function getListGuides(): ?Collection
     {
         return $this->listGuides;
     }

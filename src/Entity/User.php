@@ -35,12 +35,12 @@ class User implements UserInterface, EquatableInterface
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
      * @Groups({"visit"})
      */
-    private $sexe;
+    private $gender;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -109,14 +109,14 @@ class User implements UserInterface, EquatableInterface
         $this->username = $username;
     }
 
-    public function getSexe(): string
+    public function getGender(): string
     {
-        return $this->sexe;
+        return $this->gender;
     }
 
-    public function setSexe($sexe): void
+    public function setGender($gender): void
     {
-        $this->sexe = $sexe;
+        $this->gender = $gender;
     }
 
     public function getPassword(): string
@@ -206,7 +206,7 @@ class User implements UserInterface, EquatableInterface
 
     public function isEqualTo(UserInterface $user)
     {
-        if (!$user instanceof User) {
+        if (!$user instanceof self) {
             return false;
         }
 
