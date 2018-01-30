@@ -38,6 +38,7 @@ class Guide
      *      joinColumns={@ORM\JoinColumn(name="guide_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="review_id", referencedColumnName="id", unique=true)}
      *      )
+     * @Groups({"guide"})
      */
     private $reviews;
 

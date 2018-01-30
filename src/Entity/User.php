@@ -41,7 +41,7 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
-     * @Groups({"visit", "user"})
+     * @Groups({"visit", "user", "guide"})
      */
     private $gender;
 
@@ -95,9 +95,11 @@ class User implements UserInterface, EquatableInterface
     private $salt;
 
     /**
-    * @Groups({"user"})
-    */
-    private $roles = ['ROLE_USER'];
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     * @Groups({"user"})
+     */
+    private $roles = "'ROLE_USER'";
 
     public function getId(): int
     {
@@ -201,7 +203,7 @@ class User implements UserInterface, EquatableInterface
 
     public function getRoles(): array
     {
-        return $this->roles;
+        return array($this->roles);
     }
 
     public function getSalt(): ?string
