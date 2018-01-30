@@ -23,36 +23,21 @@ class Parcours
     private $id;
 
     /**
-     * @ORM\Column(type="date")
-     * @Assert\NotBlank
+     * @ORM\OneToMany(targetEntity="VisitUser", mappedBy="parcours")
      */
-    private $date;
+    private $visitUser;
 
     /**
-     * @ORM\Column(type="float")
-     */
-    private $prix = 0;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Visit")
-     * @ORM\JoinTable(name="parcours_visits",
-     *      joinColumns={@ORM\JoinColumn(name="parcours_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id", unique=true)}
-     *      )
-     */
-    private $visits;
-
-    /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity="Guide")
-     * @ORM\JoinColumn(name="guide_id", referencedColumnName="id")
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
      */
-    private $guide;
+    private $name;
 
     public function getId() : int
     {
@@ -64,53 +49,33 @@ class Parcours
         $this->id = $id;
     }
 
-    public function getDate() : DateTime
+    public function getVisitUser(): ?Collection
     {
-        return $this->date;
+        return $this->visitUser;
     }
 
-    public function setDate($date) : void
+    public function setVisitUser($visitUser): void
     {
-        $this->date = $date;
+        $this->visitUser = $visitUser;
     }
 
-    public function getPrix() : float
-    {
-        return $this->prix;
-    }
-
-    public function setPrix($prix) : void
-    {
-        $this->prix = $prix;
-    }
-
-    public function getVisits() : ?Collection
-    {
-        return $this->visits;
-    }
-
-    public function setVisits($visits) : void
-    {
-        $this->visits = $visits;
-    }
-
-    public function getUser() : User
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function setUser($user) : void
+    public function setUser($user): void
     {
         $this->user = $user;
     }
 
-    public function getGuide() : Guide
+    public function getName(): string
     {
-        return $this->guide;
+        return $this->name;
     }
 
-    public function setGuide($guide) : void
+    public function setName($name): void
     {
-        $this->guide = $guide;
+        $this->name = $name;
     }
 }

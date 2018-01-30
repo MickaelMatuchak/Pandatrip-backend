@@ -105,7 +105,7 @@ class Guide
         $this->billfold = $billfold;
     }
 
-    public function getReviews(): Collection
+    public function getReviews(): ?Collection
     {
         return $this->reviews;
     }
