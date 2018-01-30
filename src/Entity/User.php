@@ -99,7 +99,7 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
      */
-    private $roles = "'ROLE_USER'";
+    private $roles = 'ROLE_USER';
 
     public function getId(): int
     {
@@ -203,9 +203,12 @@ class User implements UserInterface, EquatableInterface
 
     public function getRoles(): array
     {
-        $arrayRoles = [];
+        explode(',', $this->roles());
+    }
 
-        array_push($arrayRoles, explode(',', $this->getRoles()));
+    public function setRoles($roles): void
+    {
+        $this->roles = $roles;
     }
 
     public function getSalt(): ?string
