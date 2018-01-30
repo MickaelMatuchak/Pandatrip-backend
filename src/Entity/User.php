@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
@@ -203,12 +202,7 @@ class User implements UserInterface, EquatableInterface
 
     public function getRoles(): array
     {
-        explode(',', $this->roles());
-    }
-
-    public function setRoles($roles): void
-    {
-        $this->roles = $roles;
+        return explode(',', $this->roles);
     }
 
     public function getSalt(): ?string
