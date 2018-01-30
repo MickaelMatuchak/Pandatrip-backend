@@ -15,7 +15,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="user")
  * @UniqueEntity("username")
  * @UniqueEntity("mail")
- * @ApiResource(attributes={"filters"={"user.search_filter"}})
+ * @ApiResource(attributes={
+ *     "filters"={"user.search_filter"},
+ *      "normalization_context"={"groups"={"user"}}
+ * })
  */
 class User implements UserInterface, EquatableInterface
 {
@@ -23,14 +26,14 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visit"})
+     * @Groups({"visit", "user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit"})
+     * @Groups({"visit", "user"})
      */
     private $username;
 
@@ -38,25 +41,28 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
-     * @Groups({"visit"})
+     * @Groups({"visit", "user"})
      */
     private $gender;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
-    private $firstName;
+    private $firstname;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
-    private $lastName;
+    private $lastname;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
     private $mail;
 
@@ -69,13 +75,14 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
     private $connexionDate;
 
     /**
      * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
-     * @Groups({"visit"})
+     * @Groups({"visit", "user"})
      */
     private $image;
 
@@ -129,24 +136,24 @@ class User implements UserInterface, EquatableInterface
         $this->password = password_hash($password, PASSWORD_BCRYPT);
     }
 
-    public function getFirstName(): string
+    public function getFirstname(): string
     {
-        return $this->firstName;
+        return $this->firstname;
     }
 
-    public function setFirstName($firstName): void
+    public function setFirstname($firstname): void
     {
-        $this->firstName = $firstName;
+        $this->firstname = $firstname;
     }
 
-    public function getLastName(): string
+    public function getLastname(): string
     {
-        return $this->lastName;
+        return $this->lastname;
     }
 
-    public function setLastName($lastName): void
+    public function setLastname($lastname): void
     {
-        $this->lastName = $lastName;
+        $this->lastname = $lastname;
     }
 
     public function getMail(): string
