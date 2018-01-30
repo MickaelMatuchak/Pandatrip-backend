@@ -19,3 +19,8 @@ services:
         parent: 'api_platform.doctrine.orm.range_filter'
         arguments: [ { postalCode: ~ } ]
         tags:  [ 'api_platform.filter' ]
+
+    parcours.search_filter:
+        parent:  'api_platform.doctrine.orm.search_filter'
+        arguments: [ { user.username: 'exact' } ]
+        tags: [ 'api_platform.filter' ]

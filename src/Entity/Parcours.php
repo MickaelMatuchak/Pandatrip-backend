@@ -11,7 +11,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="parcours")
- * @ApiResource()
+ * @ApiResource(attributes={
+ *     "filters"={"parcours.search_filter"}
+ * })
  */
 class Parcours
 {

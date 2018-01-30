@@ -94,6 +94,9 @@ class User implements UserInterface, EquatableInterface
 
     private $salt;
 
+    /**
+    * @Groups({"user"})
+    */
     private $roles = ['ROLE_USER'];
 
     public function getId(): int
