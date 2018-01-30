@@ -53,6 +53,7 @@ class Review
     /**
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @Groups({"visit"})
      */
     private $user;
 

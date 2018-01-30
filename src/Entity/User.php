@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @UniqueEntity("mail")
  * @ApiResource(attributes={
  *     "filters"={"user.search_filter"},
- *      "normalization_context"={"groups"={"user"}}
+ *     "normalization_context"={"groups"={"user"}}
  * })
  */
 class User implements UserInterface, EquatableInterface
@@ -26,14 +26,14 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visit", "user"})
+     * @Groups({"visit", "user", "guide"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit", "user"})
+     * @Groups({"visit", "user", "guide"})
      */
     private $username;
 
@@ -48,7 +48,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"user", "guide"})
      */
     private $firstname;
 
@@ -82,7 +82,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
-     * @Groups({"visit", "user"})
+     * @Groups({"visit", "user", "guide"})
      */
     private $image;
 
