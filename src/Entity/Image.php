@@ -20,21 +20,21 @@ class Image
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"theme", "visit", "review", "user", "guide"})
+     * @Groups({"theme", "visit", "review", "user", "guide", "visitguide"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"theme", "visit", "review", "user", "guide"})
+     * @Groups({"theme", "visit", "review", "user", "guide", "visitguide"})
      */
     private $url;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull
-     * @Groups({"theme", "visit", "review", "user", "guide"})
+     * @Groups({"theme", "visit", "review", "user", "guide", "visitguide"})
      */
     private $description;
 

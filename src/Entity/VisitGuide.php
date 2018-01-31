@@ -4,11 +4,15 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="visits_guides")
- * @ApiResource()
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"visitguide"}},
+ *     "filters"={"visitguide.search_filter", "visitGuide.boolean_filter"}
+ * })
  */
 class VisitGuide
 {
@@ -16,36 +20,43 @@ class VisitGuide
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"visitguide"})
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Visit", inversedBy="listGuides")
+     * @Groups({"visitguide"})
      */
     private $visit;
 
     /**
      * @ORM\ManyToOne(targetEntity="Guide", inversedBy="listVisits")
+     * @Groups({"visitguide"})
      */
     private $guide;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"visitguide"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"visitguide"})
      */
     private $duration;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"visitguide"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"visitguide"})
      */
     private $isAvailable;
 

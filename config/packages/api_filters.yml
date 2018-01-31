@@ -24,3 +24,14 @@ services:
         parent:  'api_platform.doctrine.orm.search_filter'
         arguments: [ { user.username: 'exact' } ]
         tags: [ 'api_platform.filter' ]
+
+    visitguide.search_filter:
+        parent:  'api_platform.doctrine.orm.search_filter'
+        arguments: [ { isAvailable: 'exact' } ]
+        tags: [ 'api_platform.filter' ]
+
+
+    visitguide.boolean_filter:
+        parent: 'api_platform.doctrine.orm.boolean_filter'
+        arguments: [ { isAvailable: ~ } ]
+        tags: [ 'api_platform.filter' ]

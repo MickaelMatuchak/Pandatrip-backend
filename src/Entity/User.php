@@ -33,7 +33,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit", "user", "guide"})
+     * @Groups({"visit", "user", "guide", "visitguide"})
      */
     private $username;
 
@@ -41,21 +41,21 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
-     * @Groups({"visit", "user", "guide"})
+     * @Groups({"visit", "user", "guide", "visitguide"})
      */
     private $gender;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide"})
+     * @Groups({"user", "guide", "visitguide"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"user", "visitguide"})
      */
     private $lastname;
 
@@ -82,7 +82,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
-     * @Groups({"visit", "user", "guide"})
+     * @Groups({"visit", "user", "guide", "visitguide"})
      */
     private $image;
 

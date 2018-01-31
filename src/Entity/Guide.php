@@ -23,7 +23,7 @@ class Guide
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"guide" ,"user"})
+     * @Groups({"guide" ,"user", "visitguide"})
      */
     private $id;
 
@@ -93,7 +93,7 @@ class Guide
 
     /**
      * @ORM\OneToOne(targetEntity="User", mappedBy="guide")
-     * @Groups({"guide"})
+     * @Groups({"guide", "visitguide"})
      */
     private $user;
 
