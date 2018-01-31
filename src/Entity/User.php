@@ -216,7 +216,9 @@ class User implements UserInterface, EquatableInterface
     public function getRoles(): array
     {
         if ($this->guide !== null) {
-            array_push($this->roles, 'ROLE_GUIDE');
+            if (!\in_array('ROLE_GUIDE', $this->roles, true)) {
+                array_push($this->roles, 'ROLE_GUIDE');
+            }
         }
 
         return $this->roles;
