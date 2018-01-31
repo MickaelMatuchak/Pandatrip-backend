@@ -92,13 +92,15 @@ class User implements UserInterface, EquatableInterface
      */
     private $password;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Guide", mappedBy="user")
+     * @Groups({"visit", "user", "guide"})
+     */
+    private $guide;
+
     private $salt;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank
-     */
-    private $roles = 'ROLE_USER';
+    private $roles = ['ROLE_USER'];
 
     public function getId(): int
     {
@@ -202,7 +204,11 @@ class User implements UserInterface, EquatableInterface
 
     public function getRoles(): array
     {
-        return explode(', ', trim($this->roles));
+        if ($this->guide !== null) {
+            array_push($this->roles, 'ROLE_GUIDE');
+        }
+
+        return $this->roles;
     }
 
     public function getSalt(): ?string
