@@ -43,14 +43,6 @@ class Guide
     private $reviews;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * @Assert\NotBlank
-     * @Groups({"guide"})
-     */
-    private $user;
-
-    /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
      */
@@ -119,16 +111,6 @@ class Guide
     public function setReviews($reviews): void
     {
         $this->reviews = $reviews;
-    }
-
-    public function getUser(): User
-    {
-        return $this->user;
-    }
-
-    public function setUser($user): void
-    {
-        $this->user = $user;
     }
 
     public function getAddress(): string

@@ -93,7 +93,8 @@ class User implements UserInterface, EquatableInterface
     private $password;
 
     /**
-     * @ORM\OneToOne(targetEntity="Guide", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="Guide")
+     * @ORM\JoinColumn(name="guide_id", referencedColumnName="id")
      * @Groups({"visit", "user", "guide"})
      */
     private $guide;
