@@ -25,13 +25,12 @@ services:
         arguments: [ { user.username: 'exact' } ]
         tags: [ 'api_platform.filter' ]
 
-    visitguide.search_filter:
-        parent:  'api_platform.doctrine.orm.search_filter'
+    visitguide.boolean_filter:
+        parent: 'api_platform.doctrine.orm.boolean_filter'
         arguments: [ { isAvailable: 'exact' } ]
         tags: [ 'api_platform.filter' ]
 
-
-    visitguide.boolean_filter:
-        parent: 'api_platform.doctrine.orm.boolean_filter'
-        arguments: [ { isAvailable: ~ } ]
+    visitguide.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { visit: 'exact' } ]
         tags: [ 'api_platform.filter' ]
