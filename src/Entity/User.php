@@ -95,7 +95,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\OneToOne(targetEntity="Guide")
      * @ORM\JoinColumn(name="guide_id", referencedColumnName="id")
-     * @Groups({"visit", "user", "guide"})
+     * @Groups({"visit", "user"})
      */
     private $guide;
 

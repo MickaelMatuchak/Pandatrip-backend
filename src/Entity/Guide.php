@@ -13,7 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="guide")
  * @UniqueEntity("user")
- * @ApiResource()
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"guide"}}
+ * })
  */
 class Guide
 {
@@ -21,7 +23,7 @@ class Guide
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"user"})
+     * @Groups({"guide" ,"user"})
      */
     private $id;
 
@@ -88,6 +90,12 @@ class Guide
      * @Groups({"user"})
      */
     private $listVisits;
+
+    /**
+     * @ORM\OneToOne(targetEntity="User", mappedBy="guide")
+     * @Groups({"guide"})
+     */
+    private $user;
 
     public function getId(): int
     {
@@ -187,5 +195,15 @@ class Guide
     public function setListVisits($listVisits): void
     {
         $this->listVisits = $listVisits;
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser($user): void
+    {
+        $this->user = $user;
     }
 }
