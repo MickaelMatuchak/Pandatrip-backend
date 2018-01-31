@@ -203,7 +203,7 @@ class User implements UserInterface, EquatableInterface
         $this->image = $image;
     }
 
-    public function getGuide(): Guide
+    public function getGuide(): ?Guide
     {
         return $this->guide;
     }
