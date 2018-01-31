@@ -202,6 +202,16 @@ class User implements UserInterface, EquatableInterface
         $this->image = $image;
     }
 
+    public function getGuide(): Guide
+    {
+        return $this->guide;
+    }
+
+    public function setGuide($guide): void
+    {
+        $this->guide = $guide;
+    }
+
     public function getRoles(): array
     {
         if ($this->guide !== null) {
