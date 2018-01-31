@@ -202,7 +202,7 @@ class User implements UserInterface, EquatableInterface
 
     public function getRoles(): array
     {
-        return explode(',', $this->roles);
+        return explode(',', trim($this->roles));
     }
 
     public function getSalt(): ?string

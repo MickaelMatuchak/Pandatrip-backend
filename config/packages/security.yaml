@@ -43,8 +43,10 @@ security:
 
     access_control:
         - { path: ^/api$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [ GET ] }
         - { path: ^/api/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [ GET ] }
+        - { path: ^/api/users$, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [ POST ] }
         - { path: ^/api, roles: [ ROLE_USER ], methods: [ POST, PUT, DELETE ] }
+
 
         #- { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
