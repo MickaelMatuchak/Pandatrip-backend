@@ -13,9 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="guide")
  * @UniqueEntity("user")
- * @ApiResource(attributes={
- *     "normalization_context"={"groups"={"guide"}}
- * })
+ * @ApiResource()
  */
 class Guide
 {
@@ -23,12 +21,13 @@ class Guide
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"guide"})
+     * @Groups({"user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"user"})
      */
     private $billfold = 0;
 
@@ -38,48 +37,55 @@ class Guide
      *      joinColumns={@ORM\JoinColumn(name="guide_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="review_id", referencedColumnName="id", unique=true)}
      *      )
-     * @Groups({"guide"})
+     * @Groups({"user"})
      */
     private $reviews;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
     private $region;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank
+     * @Groups({"user"})
      */
     private $phoneNumber;
 
     /**
      * @ORM\OneToMany(targetEntity="VisitGuide", mappedBy="guide")
+     * @Groups({"user"})
      */
     private $listVisits;
 
