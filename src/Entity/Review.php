@@ -18,14 +18,14 @@ class Review
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visit"})
+     * @Groups({"visit", "guide"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="smallint")
      * @Assert\Range(min=0, max=5)
-     * @Groups({"visit"})
+     * @Groups({"visit", "guide"})
      */
     private $note;
 
