@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="guide")
  * @UniqueEntity("user")
  * @ApiResource(attributes={
+ *     "filters"={"parcours.search_filter"},
  *     "normalization_context"={"groups"={"guide"}}
  * })
  */
@@ -30,7 +31,7 @@ class Guide
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"user"})
+     * @Groups({"guide", "user"})
      */
     private $billfold = 0;
 
@@ -47,48 +48,48 @@ class Guide
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"guide", "user"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"guide", "user"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"guide", "user"})
      */
     private $region;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"guide", "user"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"guide", "user"})
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"guide", "user"})
      */
     private $phoneNumber;
 
     /**
      * @ORM\OneToMany(targetEntity="VisitGuide", mappedBy="guide")
-     * @Groups({"user"})
+     * @Groups({"guide", "user"})
      */
     private $listVisits;
 
@@ -97,7 +98,6 @@ class Guide
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @Assert\NotBlank
      * @Groups({"guide", "visitguide"})
-     * @MaxDepth(1)
      */
     private $user;
 

@@ -62,7 +62,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user"})
+     * @Groups({"user", "guide"})
      */
     private $mail;
 
