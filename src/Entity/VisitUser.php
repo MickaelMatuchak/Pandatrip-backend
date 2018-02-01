@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -21,13 +22,16 @@ class VisitUser
 
     /**
      * @ORM\OneToOne(targetEntity="Visit")
+     * @Assert\NotBlank
      * @ORM\JoinColumn(name="visit_id", referencedColumnName="id", nullable=true)
      */
     private $visit;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
+     * @Assert\NotBlank
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     *
      */
     private $user;
 
@@ -40,11 +44,12 @@ class VisitUser
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isValidated;
+    private $isValidated = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="Parcours", inversedBy="visitUser")
      * @ORM\JoinColumn(name="parcours_id", referencedColumnName="id")
+     * @Assert\NotBlank
      */
     private $parcours;
 

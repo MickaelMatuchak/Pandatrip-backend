@@ -26,14 +26,14 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visit", "user", "guide"})
+     * @Groups({"user", "visit", "guide"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit", "user", "guide", "visitguide"})
+     * @Groups({"user", "visit", "guide", "visitguide"})
      */
     private $username;
 
@@ -41,7 +41,7 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
-     * @Groups({"visit", "user", "guide", "visitguide"})
+     * @Groups({"user", "visit", "guide", "visitguide"})
      */
     private $gender;
 
@@ -75,14 +75,13 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank
-     * @Groups({"user"})
      */
     private $connexionDate;
 
     /**
      * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
-     * @Groups({"visit", "user", "guide", "visitguide"})
+     * @Groups({"user", "visit", "guide", "visitguide"})
      */
     private $image;
 
@@ -93,9 +92,8 @@ class User implements UserInterface, EquatableInterface
     private $password;
 
     /**
-     * @ORM\OneToOne(targetEntity="Guide")
-     * @ORM\JoinColumn(name="guide_id", referencedColumnName="id")
-     * @Groups({"visit", "user"})
+     * @ORM\OneToOne(targetEntity="Guide", mappedBy="user")
+     * @Groups({"visit"})
      */
     private $guide;
 

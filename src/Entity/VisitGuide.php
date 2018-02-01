@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -26,12 +27,14 @@ class VisitGuide
 
     /**
      * @ORM\ManyToOne(targetEntity="Visit", inversedBy="listGuides")
+     * @Assert\NotBlank
      * @Groups({"visitguide"})
      */
     private $visit;
 
     /**
      * @ORM\ManyToOne(targetEntity="Guide", inversedBy="listVisits")
+     * @Assert\NotBlank
      * @Groups({"visitguide"})
      */
     private $guide;
@@ -44,6 +47,7 @@ class VisitGuide
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      * @Groups({"visitguide"})
      */
     private $duration;
@@ -52,13 +56,13 @@ class VisitGuide
      * @ORM\Column(type="integer")
      * @Groups({"visitguide"})
      */
-    private $price;
+    private $price = 0;
 
     /**
      * @ORM\Column(type="boolean")
      * @Groups({"visitguide"})
      */
-    private $isAvailable;
+    private $isAvailable = true;
 
     public function getId(): int
     {
@@ -120,7 +124,7 @@ class VisitGuide
         $this->price = $price;
     }
 
-    public function getisAvailable(): bool
+    public function getIsAvailable(): bool
     {
         return $this->isAvailable;
     }

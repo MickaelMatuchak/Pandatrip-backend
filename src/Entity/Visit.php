@@ -38,6 +38,7 @@ class Visit
     /**
      * @ORM\ManyToMany(targetEntity="Theme", inversedBy="visits")
      * @ORM\JoinTable(name="visits_themes")
+     * @Assert\NotBlank
      */
     private $themes;
 
@@ -118,14 +119,12 @@ class Visit
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Assert\NotBlank
      * @Groups({"visit"})
      */
     private $note;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank
      * @Groups({"visit"})
      */
     private $nbNotes = 0;
@@ -172,7 +171,7 @@ class Visit
         $this->themes = $themes;
     }
 
-    public function getImages(): Collection
+    public function getImages(): ?Collection
     {
         return $this->images;
     }
@@ -182,7 +181,7 @@ class Visit
         $this->images = $images;
     }
 
-    public function getReviews(): Collection
+    public function getReviews(): ?Collection
     {
         return $this->reviews;
     }

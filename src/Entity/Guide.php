@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -23,7 +24,7 @@ class Guide
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"guide" ,"user", "visitguide"})
+     * @Groups({"guide", "user", "visitguide"})
      */
     private $id;
 
@@ -39,7 +40,7 @@ class Guide
      *      joinColumns={@ORM\JoinColumn(name="guide_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="review_id", referencedColumnName="id", unique=true)}
      *      )
-     * @Groups({"user", "guide"})
+     * @Groups({"guide", "user"})
      */
     private $reviews;
 
@@ -92,8 +93,11 @@ class Guide
     private $listVisits;
 
     /**
-     * @ORM\OneToOne(targetEntity="User", mappedBy="guide")
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @Assert\NotBlank
      * @Groups({"guide", "visitguide"})
+     * @MaxDepth(1)
      */
     private $user;
 
