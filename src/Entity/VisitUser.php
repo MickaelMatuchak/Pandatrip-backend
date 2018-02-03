@@ -21,9 +21,9 @@ class VisitUser
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Visit")
+     * @ORM\ManyToOne(targetEntity="Visit")
      * @Assert\NotBlank
-     * @ORM\JoinColumn(name="visit_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="visit_id", referencedColumnName="id")
      */
     private $visit;
 
