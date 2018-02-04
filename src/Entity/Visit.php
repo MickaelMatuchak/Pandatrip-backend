@@ -39,6 +39,7 @@ class Visit
      * @ORM\ManyToMany(targetEntity="Theme", inversedBy="visits")
      * @ORM\JoinTable(name="visits_themes")
      * @Assert\NotBlank
+     * @Groups({"visit"})
      */
     private $themes;
 
