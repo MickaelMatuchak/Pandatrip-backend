@@ -24,14 +24,14 @@ class Visit
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visit", "theme", "visitUser"})
+     * @Groups({"visit", "theme", "visitUser", "parcours"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit", "theme", "visitUser"})
+     * @Groups({"visit", "theme", "visitUser", "parcours"})
      */
     private $name;
 
@@ -49,7 +49,7 @@ class Visit
      *      joinColumns={@ORM\JoinColumn(name="visit_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
      *      )
-     * @Groups({"visit", "theme"})
+     * @Groups({"visit", "theme", "visitUser", "parcours"})
      */
     private $images;
 
@@ -79,35 +79,35 @@ class Visit
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Groups({"visit", "visitUser"})
+     * @Groups({"visit", "visitUser", "parcours"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit", "visitUser"})
+     * @Groups({"visit", "visitUser", "parcours"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit", "visitUser"})
+     * @Groups({"visit", "visitUser", "parcours"})
      */
     private $region;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit", "visitUser"})
+     * @Groups({"visit", "visitUser", "parcours"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
      * @Assert\NotBlank
-     * @Groups({"visit", "visitUser"})
+     * @Groups({"visit", "visitUser", "parcours"})
      */
     private $postalCode;
 
