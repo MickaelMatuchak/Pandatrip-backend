@@ -20,7 +20,7 @@ class VisitUser
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visitUser"})
+     * @Groups({"visitUser", "parcours"})
      */
     private $id;
 
@@ -28,7 +28,7 @@ class VisitUser
      * @ORM\ManyToOne(targetEntity="Visit")
      * @Assert\NotBlank
      * @ORM\JoinColumn(name="visit_id", referencedColumnName="id")
-     * @Groups({"visitUser"})
+     * @Groups({"visitUser", "parcours"})
      */
     private $visit;
 
@@ -43,13 +43,13 @@ class VisitUser
     /**
      * @ORM\ManyToOne(targetEntity="VisitGuide")
      * @ORM\JoinColumn(name="visits_guides_id", referencedColumnName="id", nullable=true)
-     * @Groups({"visitUser"})
+     * @Groups({"visitUser", "parcours"})
      */
     private $visitGuide;
 
     /**
      * @ORM\Column(type="boolean")
-     * @Groups({"visitUser"})
+     * @Groups({"visitUser", "parcours"})
      */
     private $isValidated = null;
 

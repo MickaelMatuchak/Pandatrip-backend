@@ -6,12 +6,14 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="parcours")
  * @ApiResource(attributes={
- *     "filters"={"parcours.search_filter"}
+ *     "filters"={"parcours.search_filter"},
+ *     "normalization_context"={"groups"={"parcours"}}
  * })
  */
 class Parcours
@@ -20,11 +22,13 @@ class Parcours
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"parcours"})
      */
     private $id;
 
     /**
      * @ORM\OneToMany(targetEntity="VisitUser", mappedBy="parcours")
+     * @Groups({"parcours"})
      */
     private $visitUser;
 
@@ -38,6 +42,7 @@ class Parcours
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
+     * @Groups({"parcours"})
      */
     private $name;
 

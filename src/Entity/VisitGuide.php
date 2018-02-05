@@ -21,7 +21,7 @@ class VisitGuide
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visitguide", "visitUser"})
+     * @Groups({"visitguide", "visitUser", "parcours"})
      */
     private $id;
 
@@ -35,26 +35,26 @@ class VisitGuide
     /**
      * @ORM\ManyToOne(targetEntity="Guide", inversedBy="listVisits")
      * @Assert\NotBlank
-     * @Groups({"visitguide", "visitUser"})
+     * @Groups({"visitguide", "visitUser", "parcours"})
      */
     private $guide;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"visitguide", "visitUser"})
+     * @Groups({"visitguide", "visitUser", "parcours"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Groups({"visitguide", "visitUser"})
+     * @Groups({"visitguide", "visitUser", "parcours"})
      */
     private $duration;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"visitguide", "visitUser"})
+     * @Groups({"visitguide", "visitUser", "parcours"})
      */
     private $price = 0;
 

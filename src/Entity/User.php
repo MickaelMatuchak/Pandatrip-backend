@@ -26,14 +26,14 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"user", "visit", "guide", "visitUser"})
+     * @Groups({"user", "visit", "guide", "visitUser", "parcours"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "visit", "guide", "visitguide", "visitUser"})
+     * @Groups({"user", "visit", "guide", "visitguide", "visitUser", "parcours"})
      */
     private $username;
 
@@ -41,28 +41,28 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
-     * @Groups({"user", "visit", "guide", "visitguide", "visitUser"})
+     * @Groups({"user", "visit", "guide", "visitguide", "visitUser", "parcours"})
      */
     private $gender;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide", "visitguide", "visitUser"})
+     * @Groups({"user", "guide", "visitguide", "visitUser", "parcours"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide", "visitguide", "visitUser"})
+     * @Groups({"user", "guide", "visitguide", "visitUser", "parcours"})
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide"})
+     * @Groups({"user", "guide", "visitUser", "parcours"})
      */
     private $mail;
 
@@ -81,7 +81,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
-     * @Groups({"user", "visit", "guide", "visitguide"})
+     * @Groups({"user", "visit", "guide", "visitguide", "visitUser", "parcours"})
      */
     private $image;
 
