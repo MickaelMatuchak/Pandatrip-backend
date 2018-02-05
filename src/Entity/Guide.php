@@ -25,7 +25,7 @@ class Guide
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"guide", "user", "visitguide"})
+     * @Groups({"guide", "user", "visitguide", "visitUser"})
      */
     private $id;
 
@@ -97,7 +97,7 @@ class Guide
      * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @Assert\NotBlank
-     * @Groups({"guide", "visitguide"})
+     * @Groups({"guide", "visitguide", "visitUser"})
      */
     private $user;
 

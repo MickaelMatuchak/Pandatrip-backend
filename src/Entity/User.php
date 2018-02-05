@@ -26,14 +26,14 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"user", "visit", "guide"})
+     * @Groups({"user", "visit", "guide", "visitUser"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "visit", "guide", "visitguide"})
+     * @Groups({"user", "visit", "guide", "visitguide", "visitUser"})
      */
     private $username;
 
@@ -41,21 +41,21 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
-     * @Groups({"user", "visit", "guide", "visitguide"})
+     * @Groups({"user", "visit", "guide", "visitguide", "visitUser"})
      */
     private $gender;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide", "visitguide"})
+     * @Groups({"user", "guide", "visitguide", "visitUser"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide", "visitguide"})
+     * @Groups({"user", "guide", "visitguide", "visitUser"})
      */
     private $lastname;
 

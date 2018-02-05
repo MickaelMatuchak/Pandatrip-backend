@@ -9,7 +9,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="visits_users")
- * @ApiResource()
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"visitUser"}},
+ * })
  */
 class VisitUser
 {
@@ -17,6 +19,7 @@ class VisitUser
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"visitUser"})
      */
     private $id;
 
@@ -24,6 +27,7 @@ class VisitUser
      * @ORM\ManyToOne(targetEntity="Visit")
      * @Assert\NotBlank
      * @ORM\JoinColumn(name="visit_id", referencedColumnName="id")
+     * @Groups({"visitUser"})
      */
     private $visit;
 
@@ -38,13 +42,15 @@ class VisitUser
     /**
      * @ORM\ManyToOne(targetEntity="VisitGuide")
      * @ORM\JoinColumn(name="visits_guides_id", referencedColumnName="id", nullable=true)
+     * @Groups({"visitUser"})
      */
     private $visitGuide;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"visitUser"})
      */
-    private $isValidated = false;
+    private $isValidated = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Parcours", inversedBy="visitUser")

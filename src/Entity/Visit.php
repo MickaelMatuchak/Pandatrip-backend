@@ -24,14 +24,14 @@ class Visit
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"visit", "theme"})
+     * @Groups({"visit", "theme", "visitUser"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit", "theme"})
+     * @Groups({"visit", "theme", "visitUser"})
      */
     private $name;
 
@@ -79,35 +79,35 @@ class Visit
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Groups({"visit"})
+     * @Groups({"visit", "visitUser"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit"})
+     * @Groups({"visit", "visitUser"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit"})
+     * @Groups({"visit", "visitUser"})
      */
     private $region;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"visit"})
+     * @Groups({"visit", "visitUser"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer", columnDefinition="INT(5) UNSIGNED ZEROFILL")
      * @Assert\NotBlank
-     * @Groups({"visit"})
+     * @Groups({"visit", "visitUser"})
      */
     private $postalCode;
 
