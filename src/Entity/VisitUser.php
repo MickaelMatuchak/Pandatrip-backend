@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="visits_users")
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"visitUser"}},
- *     "filters"={"visitusersguide.search_filter", "visitusersguide.boolean_filter", "visitusersguidevalidate.boolean_filter"}
+ *     "filters"={"visitusersguide.search_filter", "visitusersguide.boolean_filter", "visitusersguidevalidate.boolean_filter", "visitusersbyuser.search_filter"}
  * })
  */
 class VisitUser
