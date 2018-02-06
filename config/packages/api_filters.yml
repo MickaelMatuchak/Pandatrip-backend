@@ -49,3 +49,8 @@ services:
         parent: 'api_platform.doctrine.orm.boolean_filter'
         arguments: [ { isValidated: 'exact' } ]
         tags: [ 'api_platform.filter' ]
+
+    visitusersguidevalidated.boolean_filter:
+        parent: 'api_platform.doctrine.orm.boolean_filter'
+        arguments: [ { isConfirm: 'exact' } ]
+        tags: [ 'api_platform.filter' ]

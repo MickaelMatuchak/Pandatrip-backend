@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="visits_users")
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"visitUser"}},
- *     "filters"={"visitusersguide.search_filter", "visitusersguide.boolean_filter"}
+ *     "filters"={"visitusersguide.search_filter", "visitusersguide.boolean_filter", "visitusersguidevalidate.boolean_filter"}
  * })
  */
 class VisitUser
@@ -37,7 +37,7 @@ class VisitUser
      * @ORM\ManyToOne(targetEntity="User")
      * @Assert\NotBlank
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     *
+     * @Groups({"visitUser"})
      */
     private $user;
 

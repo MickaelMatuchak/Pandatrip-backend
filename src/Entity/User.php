@@ -41,28 +41,28 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank
      * @Assert\Choice(choices = {"male", "female"})
-     * @Groups({"user", "visit", "guide", "visitguide", "visitUser", "parcours"})
+     * @Groups({"user", "visit", "guide", "visitguide", "visitUser", "parcours", "visitUser"})
      */
     private $gender;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide", "visitguide", "visitUser", "parcours"})
+     * @Groups({"user", "guide", "visitguide", "visitUser", "parcours", "visitUser"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide", "visitguide", "visitUser", "parcours"})
+     * @Groups({"user", "guide", "visitguide", "visitUser", "parcours", "visitUser"})
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
-     * @Groups({"user", "guide", "visitUser", "parcours"})
+     * @Groups({"user", "guide", "visitUser", "parcours", "visitUser"})
      */
     private $mail;
 
