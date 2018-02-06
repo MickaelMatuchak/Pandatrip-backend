@@ -40,9 +40,9 @@ services:
         arguments: [ { visit: 'exact' } ]
         tags: [ 'api_platform.filter' ]
 
-    visitusersguide.numeric_filter:
-        parent: 'api_platform.doctrine.orm.numeric_filter'
-        arguments: [ { visitGuide.guide.id: ~ } ]
+    visitusersguide.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { visitGuide.guide.user.username: 'exact' } ]
         tags: [ 'api_platform.filter' ]
 
     visitusersguide.boolean_filter:
