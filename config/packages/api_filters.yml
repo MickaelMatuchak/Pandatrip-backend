@@ -39,3 +39,13 @@ services:
         parent: 'api_platform.doctrine.orm.search_filter'
         arguments: [ { visit: 'exact' } ]
         tags: [ 'api_platform.filter' ]
+
+    visitusersguide.numeric_filter:
+        parent: 'api_platform.doctrine.orm.numeric_filter'
+        arguments: [ { visitGuide.guide.id: ~ } ]
+        tags: [ 'api_platform.filter' ]
+
+    visitusersguide.boolean_filter:
+        parent: 'api_platform.doctrine.orm.boolean_filter'
+        arguments: [ { isValidated: 'exact' } ]
+        tags: [ 'api_platform.filter' ]
