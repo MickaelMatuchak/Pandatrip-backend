@@ -52,7 +52,13 @@ class VisitUser
      * @ORM\Column(type="boolean")
      * @Groups({"visitUser", "parcours"})
      */
-    private $isValidated = null;
+    private $isValidated = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @Groups({"visitUser", "parcours"})
+     */
+    private $isConfirm = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="Parcours", inversedBy="visitUser")
@@ -109,6 +115,16 @@ class VisitUser
     public function setIsValidated($isValidated): void
     {
         $this->isValidated = $isValidated;
+    }
+
+    public function getIsConfirm(): bool
+    {
+        return $this->isConfirm;
+    }
+
+    public function setIsConfirm($isConfirm): void
+    {
+        $this->isConfirm = $isConfirm;
     }
 
     public function getParcours(): Parcours
