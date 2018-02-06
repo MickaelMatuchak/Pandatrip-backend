@@ -45,6 +45,11 @@ services:
         arguments: [ { visitGuide.guide.user.username: 'exact' } ]
         tags: [ 'api_platform.filter' ]
 
+    searchbyusername.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { user.username : 'exact' } ]
+        tags: [ 'api_platform.filter' ]
+
     visitusersguide.boolean_filter:
         parent: 'api_platform.doctrine.orm.boolean_filter'
         arguments: [ { isValidated: 'exact' } ]
@@ -53,9 +58,4 @@ services:
     visitusersguidevalidated.boolean_filter:
         parent: 'api_platform.doctrine.orm.boolean_filter'
         arguments: [ { isConfirm: 'exact' } ]
-        tags: [ 'api_platform.filter' ]
-
-   visitusersbyuser.search_filter:
-        parent: 'api_platform.doctrine.orm.search_filter'
-        arguments: [ { visitGuide.user.username: 'exact' } ]
         tags: [ 'api_platform.filter' ]
