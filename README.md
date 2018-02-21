@@ -1,4 +1,4 @@
-PandaTrip
+Pandatrip
 =======
 
 Conception de l'API Rest de Pandatrip.
