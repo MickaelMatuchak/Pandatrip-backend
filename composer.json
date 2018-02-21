@@ -48,6 +48,16 @@
             "@auto-scripts",
             "php bin/console cache:warmup --env=prod --no-debug"
         ],
+        "local_jwt_certificat": [
+            "mkdir -p var/jwt",
+            "openssl genrsa -out var/jwt/private.pem -aes256 -passout pass:LocalTest123 4096",
+            "openssl rsa -pubout -in var/jwt/private.pem -passin pass:LocalTest123 -out var/jwt/public.pem"
+        ],
+        "local-post-install-cmd": [
+            "@local_jwt_certificat",
+            "@auto-scripts",
+            "php bin/console cache:warmup --env=dev --no-debug"
+        ],
         "post-update-cmd": [
             "@auto-scripts"
         ]

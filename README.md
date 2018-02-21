@@ -1,7 +1,7 @@
 PandaTrip
 =======
 
-Conception de l'API Rest de PandaTrip.
+Conception de l'API Rest de Pandatrip.
 
 ### Les dépendances :
 
@@ -11,6 +11,19 @@ Télécharger Composer :
 Installer les librairies :
 ```
 composer.phar install
+```
+### La base de données :
+
+Modifier le fichier ".env.dist" en ".env" et ajoutez la configuration de votre BDD.
+
+Création de la base de données :
+```
+php bin/console doctrine:schema:create
+```
+
+Création des tables :
+```
+php bin/console doctrine:schema:update
 ```
 
 ### Les entités :
@@ -37,6 +50,11 @@ composer.phar install
 **id** : int, **note** : int, **text** : string, **date** : datetime
 
 ### Lancer le serveur :
+
+Générer certificat JWT et cache :
+```
+composer run-script local-post-install-cmd
+```
 
 Run :
 ```
